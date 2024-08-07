@@ -14,3 +14,8 @@
 #canvas-1{
   background-color: rgb(0, 184, 217);
 }
+
+#canvas-2{
+  border: solid;
+  margin: 10px;
+}
