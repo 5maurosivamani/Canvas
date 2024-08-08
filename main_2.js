@@ -6,7 +6,7 @@ const minX = 100,
   rangeX = 200,
   minRadios = 10,
   rangeRadios = 30,
-  animationSpeed = 0.005;
+  animationSpeed = 0.02;
 let p = 0,
   sign = 1; // p stands for percentage (1 is 100%)
 
