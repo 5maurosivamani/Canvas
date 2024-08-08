@@ -12,7 +12,7 @@ let p = 0;
 animate();
 
 function animate() {
-  p = p + 0.02;
+  p = p + 0.05;
   const y = maxY + rangeY * Math.sin(p * 1);
 
   context.clearRect(0, 0, canvas4.width, canvas4.height);
