@@ -20,3 +20,9 @@ Output 4: Heart Image Animation
 </h3>
 
 <img src="./git_src/heart.gif" height="300">
+
+<h3>
+Output 5: Snow Man Eye Animation
+</h3>
+
+<img src="./git_src/snow-man-eye-animation.gif" height="300">

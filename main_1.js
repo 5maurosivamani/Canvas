@@ -1,7 +1,6 @@
 const canvas1 = document.getElementById("canvas-1");
 const context = canvas1.getContext("2d");
 
-
 drawBody(100, 300, 40);
 drawBody(300, 300, 30);
 
