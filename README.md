@@ -26,3 +26,10 @@ Output 5: Snow Man Eye Animation
 </h3>
 
 <img src="./git_src/snow-man-eye-animation.gif" height="300">
+
+<h3>
+Output 6: Illusion Wall
+</h3>
+
+<img src="./git_src/illusion.png" height="300">
+
