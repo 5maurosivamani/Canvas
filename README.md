@@ -45,3 +45,11 @@ Output 7: Ebbinghaus Illusion
 
 <img src="./git_src/ebbinghaus.gif" height="300">
 
+
+<h3>
+Output 7: Oscar Illusion
+</h3>
+
+<img src="./git_src/oscar-illution.png" height="300">
+
+

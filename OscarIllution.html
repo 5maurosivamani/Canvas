@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscar Reutersvard</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="700" height="600" style="border: solid"></canvas
+    >"
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.addEventListener("pointerdown", function (e) {
+        ctx.globalCompositeOperation = "source-over";
+
+        drawCube(e.offsetX, e.offsetY, 100, e.button === 0);
+      });
+
+      canvas.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+
+      function drawCube(centerX, centerY, size, topPartInBack = false) {
+        ctx.beginPath();
+        const radius = size / 2;
+
+        for (let i = 0; i <= 6; i++) {
+          const angle = (Math.PI / 3) * i - Math.PI / 6;
+          const x = centerX + radius * Math.cos(angle);
+          const y = centerY + radius * Math.sin(angle);
+
+          if (i == 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+
+          if (i % 2 === 0) {
+            if (i == 6 && topPartInBack) {
+              ctx.globalCompositeOperation = "destination-over";
+            }
+            ctx.stroke();
+            ctx.lineTo(centerX, centerY);
+            ctx.fillStyle = ["#888", "#444", "#AAA"][i / 2 - 1];
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+          }
+        }
+
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>
