@@ -33,3 +33,9 @@ Output 6: Illusion Wall
 
 <img src="./git_src/illusion.png" height="300">
 
+<h3>
+Output 7: Draw Yin Yang
+</h3>
+
+<img src="./git_src/yin-yang.png" height="300">
+

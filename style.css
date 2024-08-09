@@ -32,11 +32,18 @@
 
 #canvas-5 {
   background-color: rgb(10, 206, 213);
-
 }
 
 #canvas-6 {
   background-color: blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#canvas-7 {
+  background-color: rgb(248, 137, 222);
   position: absolute;
   top: 50%;
   left: 50%;
