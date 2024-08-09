@@ -39,3 +39,9 @@ Output 7: Draw Yin Yang
 
 <img src="./git_src/yin-yang.png" height="300">
 
+<h3>
+Output 7: Ebbinghaus Illusion
+</h3>
+
+<img src="./git_src/ebbinghaus.gif" height="300">
+
