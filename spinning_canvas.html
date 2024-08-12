@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spinning Canvas</title>
+    <style>
+      #myCanvas {
+        border: 1px solid black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #slider {
+        width: 200px;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <input
+        type="range"
+        id="slider"
+        min="-3"
+        max="3"
+        onchange="updateRotationSpeed()"
+        value="0"
+        step="0.5"
+      />
+      <span id="rotation-speed">0</span>
+    </center>
+
+    <canvas id="myCanvas" width="400," height="400"></canvas>
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      let drawing = false;
+      let rotationSpeed = 0;
+      let rotationAngle = 0;
+      let eventInfo = null;
+
+      canvas.addEventListener("pointerdown", function (e) {
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+        drawing = true;
+      });
+
+      canvas.addEventListener("pointermove", function (e) {
+        eventInfo = e;
+      });
+
+      canvas.addEventListener("pointerleave", function (e) {
+        drawing = false;
+      });
+
+      canvas.addEventListener("pointerup", function (e) {
+        drawing = false;
+      });
+
+      animate();
+
+      function animate() {
+        rotationAngle += rotationSpeed;
+        canvas.style.transform = `translate(-50%, -50%) rotate(${rotationAngle}deg)`;
+
+        if (drawing && eventInfo) {
+          ctx.lineTo(eventInfo.offsetX, eventInfo.offsetY);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(eventInfo.offsetX, eventInfo.offsetY);
+        //   console.log(eventInfo.offsetX)
+        }
+
+
+        requestAnimationFrame(animate);
+      }
+
+      function updateRotationSpeed() {
+        const slider = document.getElementById("slider");
+        const rotationSpeedDisplay = document.getElementById("rotation-speed");
+        rotationSpeed = parseFloat(slider.value);
+        rotationSpeedDisplay.innerText = rotationSpeed;
+      }
+    </script>
+  </body>
+</html>
