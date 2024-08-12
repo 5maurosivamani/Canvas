@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Logo</title>
+    <style>
+      #myCanvas {
+        border: solid;
+      }
+
+      #circle {
+        height: 100px;
+        width: 100px;
+        border: 1px dashed gray;
+        border-radius: 50%;
+        position: absolute;
+        pointer-events: none;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" height="650" width="700"></canvas>
+    <div id="circle"></div>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      let radius = 50;
+
+      canvas.addEventListener("wheel", function (e) {
+        e.preventDefault();
+        radius -= Math.sign(e.deltaY);
+        showIndent(e.clientX, e.clientY, radius);
+      });
+
+      canvas.addEventListener("mousemove", function (e) {
+        showIndent(e.clientX, e.clientY, radius);
+      });
+
+      canvas.addEventListener("pointerdown", function (e) {
+        ctx.fillStyle = "#050";
+        if (e.button === 0) {
+          ctx.globalCompositeOperation = "source-over";
+        } else {
+          ctx.globalCompositeOperation = "destination-out";
+          ctx.fillStyle = "#fff";
+        }
+        ctx.beginPath();
+        ctx.arc(e.offsetX, e.offsetY, radius, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+
+      canvas.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+
+      function showIndent(x, y, r) {
+        circle.style.left = x - r + "px";
+        circle.style.top = y - r + "px";
+        circle.style.width = r * 2 + "px";
+        circle.style.height = r * 2 + "px";
+        circle.style.display = "block";
+      }
+    </script>
+  </body>
+</html>
